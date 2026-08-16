@@ -1,15 +1,25 @@
 # turbokv
 
-High-performance, lightweight in-memory key-value database with TTL expiration, write-ahead logging (WAL) persistence, and a multi-threaded TCP server built with modern **C++17**.
+> High-performance in-memory key-value store with TTL, write-ahead logging (WAL), and TCP protocol in modern C++17.
+
+[![C++](https://img.shields.io/badge/C%2B%2B-17-00599C?style=flat-square&logo=c%2B%2B)](https://isocpp.org)
+[![CMake](https://img.shields.io/badge/CMake-3.16%2B-064F8C?style=flat-square&logo=cmake)](https://cmake.org)
+[![Build](https://img.shields.io/badge/Build-Passing-brightgreen?style=flat-square)](https://github.com/txltedxgod/turbokv)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker)](https://docker.com)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
+
+`#key-value-store` `#database-engine` `#cpp17` `#wal` `#in-memory` `#tcp-server` `#multithreading` `#systems-programming`
+
+---
 
 ## Features
 
-- **Blazing Fast In-Memory Storage:** Sharded table architecture with read/write shared mutexes to reduce lock contention.
-- **TTL Support:** Per-key expiration with background scavenger thread.
+- **Blazing Fast In-Memory Storage:** Sharded table architecture with read/write shared mutexes to minimize lock contention.
+- **TTL Expiration:** Per-key expiration with automatic background scavenger thread.
 - **Write-Ahead Logging (WAL):** Append-only binary log with automatic replay on startup and log compaction.
-- **TCP Protocol:** Redis-like text wire protocol compatible with `nc`, `telnet`, or simple TCP clients.
-- **Modern C++17:** Clean codebase with zero external third-party dependencies.
-- **Cross-Platform:** Builds on Linux, macOS, and Windows.
+- **TCP Wire Protocol:** Redis-compatible text protocol supporting standard network clients (`nc`, `telnet`, SDKs).
+- **Zero External Dependencies:** Built entirely with modern C++ Standard Library.
+- **Cross-Platform:** Compiles seamlessly on Linux, macOS, and Windows.
 
 ## Quick Start
 
@@ -30,18 +40,14 @@ cmake --build .
 ### Run Benchmarks & Tests
 
 ```bash
-# Run test suite
-ctest --output-on-failure
-# Or directly:
+# Run unit tests
 ./turbokv_tests
 
-# Run benchmark
+# Run multi-threaded throughput benchmark
 ./turbokv_bench
 ```
 
-## Protocol Examples
-
-Connect with `nc` or `telnet`:
+## Protocol Usage
 
 ```bash
 $ nc localhost 6389
@@ -79,25 +85,4 @@ QUIT
 ```bash
 docker build -t turbokv .
 docker run -d -p 6389:6389 -v $(pwd)/data:/app/data turbokv
-```
-
-## Project Structure
-
-```
-├── CMakeLists.txt
-├── include/
-│   └── turbokv/
-│       ├── engine.hpp      # Core sharded in-memory engine
-│       ├── server.hpp      # Non-blocking / threaded TCP server
-│       ├── types.hpp       # Data structs and stats
-│       └── wal.hpp         # Binary WAL persistence
-├── src/
-│   ├── engine.cpp
-│   ├── main.cpp
-│   ├── server.cpp
-│   └── wal.cpp
-├── tests/
-│   └── test_engine.cpp
-└── benchmarks/
-    └── bench.cpp
 ```
