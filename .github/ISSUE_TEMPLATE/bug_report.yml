@@ -1,0 +1,11 @@
+name: Bug Report
+description: Report an engine crash or unexpected behavior
+labels: ["bug"]
+body:
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug Description
+      description: Describe the behavior and steps to reproduce.
+    validations:
+      required: true
