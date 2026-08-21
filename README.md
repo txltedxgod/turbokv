@@ -1,5 +1,10 @@
 # turbokv
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![C++17](https://img.shields.io/badge/C%2B%2B-17-00599C.svg?logo=c%2B%2B&logoColor=white)](https://isocpp.org/)
+[![POSIX Sockets](https://img.shields.io/badge/protocol-TCP_Wire-blue.svg)](https://github.com/txltedxgod/turbokv)
+
+
 > High-performance in-memory key-value store with **Time-To-Live (TTL)** expiration, **Write-Ahead Logging (WAL)** crash resilience, and a custom multithreaded TCP protocol written in **Modern C++17**.
 
 [![C++](https://img.shields.io/badge/C%2B%2B-17-00599C?style=flat-square&logo=c%2B%2B)](https://en.cppreference.com/w/cpp/17)
