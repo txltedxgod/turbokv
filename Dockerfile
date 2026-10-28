@@ -1,4 +1,4 @@
-FROM alpine:3.19 AS builder
+FROM alpine:3.24 AS builder
 
 RUN apk add --no-cache build-base cmake ninja linux-headers
 
@@ -8,7 +8,7 @@ COPY . .
 RUN cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 RUN cmake --build build --target turbokv_server
 
-FROM alpine:3.19
+FROM alpine:3.24
 RUN apk add --no-cache libstdc++
 
 WORKDIR /app
