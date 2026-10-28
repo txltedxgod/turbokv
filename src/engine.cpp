@@ -1,6 +1,7 @@
 #include "turbokv/engine.hpp"
 #include <chrono>
 #include <functional>
+#include <mutex>
 
 namespace turbokv {
 

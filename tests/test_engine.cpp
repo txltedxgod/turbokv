@@ -60,6 +60,7 @@ void test_wal_persistence() {
         size_t replayed = wal.replay(restored_engine);
 
         assert(replayed == 3);
+        (void)replayed;
         assert(!restored_engine.exists("hero"));
         assert(restored_engine.exists("city"));
         assert(restored_engine.get("city").value() == "gotham");
